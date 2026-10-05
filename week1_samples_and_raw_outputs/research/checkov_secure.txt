@@ -1,0 +1,19 @@
+2026-10-05 11:57:18,344 [MainThread  ] [WARNI]  Failed to get the checkov mappings and guidelines from https://api0.prismacloud.io/bridgecrew/api/v2/guidelines. Skips using BC_* IDs will not work.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/checkov/common/bridgecrew/platform_integration.py", line 1284, in get_public_run_config
+    self.public_metadata_response = json.loads(request.data.decode("utf8"))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+dockerfile scan results:
+
+Passed checks: 42, Failed checks: 0, Skipped checks: 0
+
+
