@@ -1,0 +1,21 @@
+services:
+  web:
+    image: myapp:latest
+    privileged: true
+    network_mode: host
+    cap_add:
+      - ALL
+    environment:
+      - DB_PASSWORD=SuperSecret123
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+  cache:
+    image: redis:latest
+    ports:
+      - "0.0.0.0:6379:6379"

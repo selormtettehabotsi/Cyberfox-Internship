@@ -1,0 +1,97 @@
+# Dockerfile rules. Each rule selects a check and supplies parameters.
+# References follow the commonly cited CIS Docker Benchmark numbering; verify
+# the section numbers against the benchmark version cited in the final report.
+- id: DF001
+  title: Container runs as root
+  severity: high
+  check: no_nonroot_user
+  risk: >-
+    Without a non-root USER, the application runs as root inside the container.
+    If an attacker exploits the app, they start with full privileges, which makes
+    container escape and file tampering easier.
+  fix: >-
+    Create an unprivileged user and switch to it, for example "RUN useradd -r -u 1001 app" then "USER app".
+  reference: CIS Docker Benchmark 4.1
+
+- id: DF002
+  title: Base image is not pinned to a version
+  severity: medium
+  check: unpinned_base_image
+  risk: >-
+    An untagged or "latest" base image changes without notice, so builds are not
+    reproducible and a compromised or broken update can slip in unnoticed.
+  fix: >-
+    Pin an exact version tag, or better a digest, for example "python:3.12.4-slim" or "python@sha256:...".
+  reference: CIS Docker Benchmark 4.2
+
+- id: DF003
+  title: Secret hardcoded in ENV or ARG
+  severity: high
+  check: secret_assignment
+  params: {instructions: [ENV, ARG]}
+  risk: >-
+    Values set with ENV or ARG are stored in the image history and can be read by
+    anyone who can pull the image, even if the line is later removed.
+  fix: >-
+    Pass secrets at runtime (environment injection, Docker secrets or a secrets manager) and keep them out of the image.
+  reference: CIS Docker Benchmark 4.10
+
+- id: DF004
+  title: ADD used with a remote URL
+  severity: medium
+  check: regex_instruction
+  params: {instructions: [ADD], pattern: '(?:^|\s)https?://'}
+  risk: >-
+    ADD downloads content with no integrity check, so a tampered or hijacked URL
+    puts untrusted files straight into your image.
+  fix: >-
+    Use COPY for local files. For downloads, use curl or wget in a RUN step and verify a checksum.
+  reference: CIS Docker Benchmark 4.9
+
+- id: DF005
+  title: No HEALTHCHECK defined
+  severity: low
+  check: missing_instruction
+  params: {instruction: HEALTHCHECK}
+  risk: >-
+    Without a health check, Docker cannot tell that the app has hung or failed,
+    so broken containers can keep serving traffic.
+  fix: >-
+    Add a HEALTHCHECK instruction that tests the application, for example an HTTP request to a status endpoint.
+  reference: CIS Docker Benchmark 4.6
+
+- id: DF006
+  title: Remote script piped into a shell
+  severity: high
+  check: regex_instruction
+  params: {instructions: [RUN], pattern: '(curl|wget)\b[^|;&]*\|\s*(sudo\s+)?(ba|z|da)?sh\b'}
+  risk: >-
+    Running a downloaded script without checking it executes whatever the server
+    returns at build time, including malicious changes.
+  fix: >-
+    Download the file, verify its checksum or signature, then run it in a separate step.
+  reference: OWASP Docker Security Cheat Sheet
+
+- id: DF007
+  title: sudo used or installed in the image
+  severity: medium
+  check: regex_instruction
+  params: {instructions: [RUN], pattern: '\bsudo\b'}
+  risk: >-
+    sudo in a container usually means the workload needs privilege escalation,
+    which widens what an attacker can do after a compromise.
+  fix: >-
+    Run build steps as root before the USER line, and run the application as a non-root user without sudo.
+  reference: OWASP Docker Security Cheat Sheet
+
+- id: DF008
+  title: SSH port 22 exposed
+  severity: medium
+  check: regex_instruction
+  params: {instructions: [EXPOSE], pattern: '(?:^|\s)22(?:/tcp|/udp)?(?:\s|$)'}
+  risk: >-
+    Exposing port 22 suggests an SSH server inside the container, which adds an
+    extra remote login path that is hard to patch and monitor.
+  fix: >-
+    Remove SSH from the image and use "docker exec" or your orchestrator for access.
+  reference: CIS Docker Benchmark 5.6

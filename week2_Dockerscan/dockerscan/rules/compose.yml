@@ -1,0 +1,106 @@
+# docker-compose rules.
+- id: DC001
+  title: Privileged container
+  severity: critical
+  check: key_equals
+  params: {key: privileged, value: true}
+  risk: >-
+    A privileged container has almost the same access to the host as root on the
+    host itself. A compromise of the container can become a compromise of the machine.
+  fix: >-
+    Remove "privileged: true" and grant only the specific capabilities or devices the service needs.
+  reference: CIS Docker Benchmark 5.4
+
+- id: DC002
+  title: Docker socket mounted into a container
+  severity: critical
+  check: volume_source_matches
+  params: {pattern: 'docker\.sock$'}
+  risk: >-
+    Access to the Docker socket lets a container start other containers with any
+    settings, which is effectively root access on the host.
+  fix: >-
+    Avoid mounting the socket. If it is unavoidable, use a restricted socket proxy and mount it read-only.
+  reference: CIS Docker Benchmark 5.31
+
+- id: DC003
+  title: Host network mode
+  severity: high
+  check: key_equals
+  params: {key: network_mode, value: host}
+  risk: >-
+    The container shares the host network stack, which removes network isolation
+    and exposes every host service to it.
+  fix: >-
+    Use a user-defined bridge network and publish only the ports that are needed.
+  reference: CIS Docker Benchmark 5.9
+
+- id: DC004
+  title: Secret hardcoded in environment
+  severity: high
+  check: secret_assignment
+  risk: >-
+    Credentials written in the compose file end up in version control and are
+    visible to anyone who can read the file or inspect the container.
+  fix: >-
+    Use an env_file kept out of version control, Docker secrets, or variable references such as ${DB_PASSWORD}.
+  reference: CIS Docker Benchmark 4.10
+
+- id: DC005
+  title: Sensitive port published on all interfaces
+  severity: high
+  check: published_ports_exposed
+  params: {ports: [3306, 5432, 6379, 27017, 9200, 11211, 5984, 9042]}
+  risk: >-
+    Databases and caches published on every interface can be reached from other
+    machines, and many are deployed with weak or default credentials.
+  fix: >-
+    Bind to localhost ("127.0.0.1:5432:5432") or do not publish the port and let other services reach it over the internal network.
+  reference: CIS Docker Benchmark 5.13
+
+- id: DC006
+  title: Dangerous Linux capabilities added
+  severity: high
+  check: list_contains_any
+  params: {key: cap_add, values: [ALL, SYS_ADMIN]}
+  risk: >-
+    ALL and SYS_ADMIN give the container broad kernel-level powers that can be
+    used to break out of its isolation.
+  fix: >-
+    Drop all capabilities with cap_drop and add back only the specific ones the service requires.
+  reference: CIS Docker Benchmark 5.3
+
+- id: DC008
+  title: No non-root user set for the service
+  severity: medium
+  check: key_missing
+  params: {key: user}
+  risk: >-
+    The service may run as root. This is a false alarm only if the image itself
+    already sets a non-root USER.
+  fix: >-
+    Set "user" to an unprivileged UID:GID, for example user "1001:1001", after checking file permissions.
+  reference: CIS Docker Benchmark 4.1
+
+- id: DC009
+  title: no-new-privileges not set
+  severity: medium
+  check: list_missing_value
+  params: {key: security_opt, value: no-new-privileges}
+  risk: >-
+    Without it, processes in the container can gain extra privileges through
+    setuid binaries, which helps an attacker escalate.
+  fix: >-
+    Add "security_opt: [no-new-privileges:true]" to the service.
+  reference: CIS Docker Benchmark 5.25
+
+- id: DC011
+  title: Image is not pinned to a version
+  severity: medium
+  check: image_unpinned
+  risk: >-
+    An untagged or "latest" image changes without notice, so deployments are not
+    reproducible and a bad upstream update is pulled in automatically.
+  fix: >-
+    Pin an exact version tag or digest, for example "postgres:16.3".
+  reference: CIS Docker Benchmark 4.2

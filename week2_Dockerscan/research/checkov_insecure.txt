@@ -1,0 +1,34 @@
+2026-10-05 11:57:15,090 [MainThread  ] [WARNI]  Failed to get the checkov mappings and guidelines from https://api0.prismacloud.io/bridgecrew/api/v2/guidelines. Skips using BC_* IDs will not work.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/checkov/common/bridgecrew/platform_integration.py", line 1284, in get_public_run_config
+    self.public_metadata_response = json.loads(request.data.decode("utf8"))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+dockerfile scan results:
+
+Passed checks: 47, Failed checks: 5, Skipped checks: 0
+
+Check: CKV_DOCKER_1: "Ensure port 22 is not exposed"
+	FAILED for resource: /Dockerfile.EXPOSE
+	File: /Dockerfile:7-7
+Check: CKV_DOCKER_7: "Ensure the base image uses a non latest version tag"
+	FAILED for resource: /Dockerfile.FROM
+	File: /Dockerfile:1-1
+Check: CKV_DOCKER_4: "Ensure that COPY is used instead of ADD in Dockerfiles"
+	FAILED for resource: /Dockerfile.ADD
+	File: /Dockerfile:4-4
+Check: CKV_DOCKER_2: "Ensure that HEALTHCHECK instructions have been added to container images"
+	FAILED for resource: /Dockerfile.
+	File: /Dockerfile:1-9
+Check: CKV_DOCKER_3: "Ensure that a user for the container has been created"
+	FAILED for resource: /Dockerfile.
+	File: /Dockerfile:1-9
+
