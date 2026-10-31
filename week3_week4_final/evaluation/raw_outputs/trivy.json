@@ -1,0 +1,1312 @@
+{
+  "SchemaVersion": 2,
+  "Trivy": {
+    "Version": "0.76.1"
+  },
+  "ReportID": "01a19121-d6b3-7e96-a5b1-82014e2b9e61",
+  "CreatedAt": "2026-10-31T08:44:36.40395799Z",
+  "ArtifactName": "testset",
+  "ArtifactType": "filesystem",
+  "Results": [
+    {
+      "Target": "dockerfile/01_GoogleCloudPlatform_microservices-demo/Dockerfile",
+      "Class": "config",
+      "Type": "dockerfile",
+      "MisconfSummary": {
+        "Successes": 25,
+        "Failures": 2
+      },
+      "Misconfigurations": [
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0002",
+          "Title": "Image user should not be 'root'",
+          "Description": "Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile.",
+          "Message": "Specify at least 1 USER command in Dockerfile with non-root user as argument",
+          "Namespace": "builtin.dockerfile.DS002",
+          "Query": "data.builtin.dockerfile.DS002.deny",
+          "Resolution": "Add 'USER \u003cnon root user name\u003e' line to the Dockerfile",
+          "Severity": "HIGH",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0002",
+          "References": [
+            "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/",
+            "https://avd.aquasec.com/misconfig/ds-0002"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        },
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Description": "You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile",
+          "Namespace": "builtin.dockerfile.DS026",
+          "Query": "data.builtin.dockerfile.DS026.deny",
+          "Resolution": "Add HEALTHCHECK instruction in Dockerfile",
+          "Severity": "LOW",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0026",
+          "References": [
+            "https://blog.aquasec.com/docker-security-best-practices",
+            "https://avd.aquasec.com/misconfig/ds-0026"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        }
+      ]
+    },
+    {
+      "Target": "dockerfile/02_GoogleCloudPlatform_microservices-demo/Dockerfile",
+      "Class": "config",
+      "Type": "dockerfile",
+      "MisconfSummary": {
+        "Successes": 24,
+        "Failures": 3
+      },
+      "Misconfigurations": [
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0001",
+          "Title": "':latest' tag used",
+          "Description": "When using a 'FROM' statement you should use a specific tag to avoid uncontrolled behavior when the image is updated.",
+          "Message": "Specify a tag in the 'FROM' statement for image 'gcr.io/distroless/static'",
+          "Namespace": "builtin.dockerfile.DS001",
+          "Query": "data.builtin.dockerfile.DS001.deny",
+          "Resolution": "Add a tag to the image in the 'FROM' statement",
+          "Severity": "MEDIUM",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0001",
+          "References": [
+            "https://avd.aquasec.com/misconfig/ds-0001"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general",
+            "StartLine": 32,
+            "EndLine": 32,
+            "Code": {
+              "Lines": [
+                {
+                  "Number": 32,
+                  "Content": "FROM gcr.io/distroless/static",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "\u001b[38;5;64mFROM\u001b[0m\u001b[38;5;37m gcr.io/distroless/static\u001b[0m",
+                  "FirstCause": true,
+                  "LastCause": true
+                }
+              ]
+            }
+          }
+        },
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0002",
+          "Title": "Image user should not be 'root'",
+          "Description": "Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile.",
+          "Message": "Specify at least 1 USER command in Dockerfile with non-root user as argument",
+          "Namespace": "builtin.dockerfile.DS002",
+          "Query": "data.builtin.dockerfile.DS002.deny",
+          "Resolution": "Add 'USER \u003cnon root user name\u003e' line to the Dockerfile",
+          "Severity": "HIGH",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0002",
+          "References": [
+            "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/",
+            "https://avd.aquasec.com/misconfig/ds-0002"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        },
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Description": "You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile",
+          "Namespace": "builtin.dockerfile.DS026",
+          "Query": "data.builtin.dockerfile.DS026.deny",
+          "Resolution": "Add HEALTHCHECK instruction in Dockerfile",
+          "Severity": "LOW",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0026",
+          "References": [
+            "https://blog.aquasec.com/docker-security-best-practices",
+            "https://avd.aquasec.com/misconfig/ds-0026"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        }
+      ]
+    },
+    {
+      "Target": "dockerfile/03_GoogleCloudPlatform_microservices-demo/Dockerfile",
+      "Class": "config",
+      "Type": "dockerfile",
+      "MisconfSummary": {
+        "Successes": 24,
+        "Failures": 3
+      },
+      "Misconfigurations": [
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0001",
+          "Title": "':latest' tag used",
+          "Description": "When using a 'FROM' statement you should use a specific tag to avoid uncontrolled behavior when the image is updated.",
+          "Message": "Specify a tag in the 'FROM' statement for image 'gcr.io/distroless/static'",
+          "Namespace": "builtin.dockerfile.DS001",
+          "Query": "data.builtin.dockerfile.DS001.deny",
+          "Resolution": "Add a tag to the image in the 'FROM' statement",
+          "Severity": "MEDIUM",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0001",
+          "References": [
+            "https://avd.aquasec.com/misconfig/ds-0001"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general",
+            "StartLine": 32,
+            "EndLine": 32,
+            "Code": {
+              "Lines": [
+                {
+                  "Number": 32,
+                  "Content": "FROM gcr.io/distroless/static",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "\u001b[38;5;64mFROM\u001b[0m\u001b[38;5;37m gcr.io/distroless/static\u001b[0m",
+                  "FirstCause": true,
+                  "LastCause": true
+                }
+              ]
+            }
+          }
+        },
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0002",
+          "Title": "Image user should not be 'root'",
+          "Description": "Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile.",
+          "Message": "Specify at least 1 USER command in Dockerfile with non-root user as argument",
+          "Namespace": "builtin.dockerfile.DS002",
+          "Query": "data.builtin.dockerfile.DS002.deny",
+          "Resolution": "Add 'USER \u003cnon root user name\u003e' line to the Dockerfile",
+          "Severity": "HIGH",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0002",
+          "References": [
+            "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/",
+            "https://avd.aquasec.com/misconfig/ds-0002"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        },
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Description": "You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile",
+          "Namespace": "builtin.dockerfile.DS026",
+          "Query": "data.builtin.dockerfile.DS026.deny",
+          "Resolution": "Add HEALTHCHECK instruction in Dockerfile",
+          "Severity": "LOW",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0026",
+          "References": [
+            "https://blog.aquasec.com/docker-security-best-practices",
+            "https://avd.aquasec.com/misconfig/ds-0026"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        }
+      ]
+    },
+    {
+      "Target": "dockerfile/04_docker_awesome-compose/Dockerfile",
+      "Class": "config",
+      "Type": "dockerfile",
+      "MisconfSummary": {
+        "Successes": 25,
+        "Failures": 2
+      },
+      "Misconfigurations": [
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0002",
+          "Title": "Image user should not be 'root'",
+          "Description": "Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile.",
+          "Message": "Specify at least 1 USER command in Dockerfile with non-root user as argument",
+          "Namespace": "builtin.dockerfile.DS002",
+          "Query": "data.builtin.dockerfile.DS002.deny",
+          "Resolution": "Add 'USER \u003cnon root user name\u003e' line to the Dockerfile",
+          "Severity": "HIGH",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0002",
+          "References": [
+            "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/",
+            "https://avd.aquasec.com/misconfig/ds-0002"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        },
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Description": "You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile",
+          "Namespace": "builtin.dockerfile.DS026",
+          "Query": "data.builtin.dockerfile.DS026.deny",
+          "Resolution": "Add HEALTHCHECK instruction in Dockerfile",
+          "Severity": "LOW",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0026",
+          "References": [
+            "https://blog.aquasec.com/docker-security-best-practices",
+            "https://avd.aquasec.com/misconfig/ds-0026"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        }
+      ]
+    },
+    {
+      "Target": "dockerfile/05_docker_awesome-compose/Dockerfile",
+      "Class": "config",
+      "Type": "dockerfile",
+      "MisconfSummary": {
+        "Successes": 24,
+        "Failures": 3
+      },
+      "Misconfigurations": [
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0002",
+          "Title": "Image user should not be 'root'",
+          "Description": "Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile.",
+          "Message": "Specify at least 1 USER command in Dockerfile with non-root user as argument",
+          "Namespace": "builtin.dockerfile.DS002",
+          "Query": "data.builtin.dockerfile.DS002.deny",
+          "Resolution": "Add 'USER \u003cnon root user name\u003e' line to the Dockerfile",
+          "Severity": "HIGH",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0002",
+          "References": [
+            "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/",
+            "https://avd.aquasec.com/misconfig/ds-0002"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        },
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0025",
+          "Title": "'apk add' is missing '--no-cache'",
+          "Description": "You should use 'apk add' with '--no-cache' to clean package cached data and reduce image size.",
+          "Message": "'--no-cache' is missed: apk update ; apk add git",
+          "Namespace": "builtin.dockerfile.DS025",
+          "Query": "data.builtin.dockerfile.DS025.deny",
+          "Resolution": "Add '--no-cache' to 'apk add' in Dockerfile",
+          "Severity": "HIGH",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0025",
+          "References": [
+            "https://github.com/gliderlabs/docker-alpine/blob/master/docs/usage.md#disabling-cache",
+            "https://avd.aquasec.com/misconfig/ds-0025"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general",
+            "StartLine": 13,
+            "EndLine": 16,
+            "Code": {
+              "Lines": [
+                {
+                  "Number": 13,
+                  "Content": "RUN \u003c\u003cEOF",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "\u001b[38;5;64mRUN\u001b[0m \u003c\u003cEOF",
+                  "FirstCause": true,
+                  "LastCause": false
+                },
+                {
+                  "Number": 14,
+                  "Content": "apk update",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "apk update",
+                  "FirstCause": false,
+                  "LastCause": false
+                },
+                {
+                  "Number": 15,
+                  "Content": "apk add git",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "apk add git",
+                  "FirstCause": false,
+                  "LastCause": false
+                },
+                {
+                  "Number": 16,
+                  "Content": "EOF",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "EOF",
+                  "FirstCause": false,
+                  "LastCause": true
+                }
+              ]
+            }
+          }
+        },
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Description": "You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile",
+          "Namespace": "builtin.dockerfile.DS026",
+          "Query": "data.builtin.dockerfile.DS026.deny",
+          "Resolution": "Add HEALTHCHECK instruction in Dockerfile",
+          "Severity": "LOW",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0026",
+          "References": [
+            "https://blog.aquasec.com/docker-security-best-practices",
+            "https://avd.aquasec.com/misconfig/ds-0026"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        }
+      ]
+    },
+    {
+      "Target": "dockerfile/06_docker_awesome-compose/Dockerfile",
+      "Class": "config",
+      "Type": "dockerfile",
+      "MisconfSummary": {
+        "Successes": 24,
+        "Failures": 3
+      },
+      "Misconfigurations": [
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0002",
+          "Title": "Image user should not be 'root'",
+          "Description": "Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile.",
+          "Message": "Specify at least 1 USER command in Dockerfile with non-root user as argument",
+          "Namespace": "builtin.dockerfile.DS002",
+          "Query": "data.builtin.dockerfile.DS002.deny",
+          "Resolution": "Add 'USER \u003cnon root user name\u003e' line to the Dockerfile",
+          "Severity": "HIGH",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0002",
+          "References": [
+            "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/",
+            "https://avd.aquasec.com/misconfig/ds-0002"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        },
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0025",
+          "Title": "'apk add' is missing '--no-cache'",
+          "Description": "You should use 'apk add' with '--no-cache' to clean package cached data and reduce image size.",
+          "Message": "'--no-cache' is missed: apk update ; apk add git",
+          "Namespace": "builtin.dockerfile.DS025",
+          "Query": "data.builtin.dockerfile.DS025.deny",
+          "Resolution": "Add '--no-cache' to 'apk add' in Dockerfile",
+          "Severity": "HIGH",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0025",
+          "References": [
+            "https://github.com/gliderlabs/docker-alpine/blob/master/docs/usage.md#disabling-cache",
+            "https://avd.aquasec.com/misconfig/ds-0025"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general",
+            "StartLine": 24,
+            "EndLine": 27,
+            "Code": {
+              "Lines": [
+                {
+                  "Number": 24,
+                  "Content": "RUN \u003c\u003cEOF",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "\u001b[38;5;64mRUN\u001b[0m \u003c\u003cEOF",
+                  "FirstCause": true,
+                  "LastCause": false
+                },
+                {
+                  "Number": 25,
+                  "Content": "apk update",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "apk update",
+                  "FirstCause": false,
+                  "LastCause": false
+                },
+                {
+                  "Number": 26,
+                  "Content": "apk add git",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "apk add git",
+                  "FirstCause": false,
+                  "LastCause": false
+                },
+                {
+                  "Number": 27,
+                  "Content": "EOF",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "EOF",
+                  "FirstCause": false,
+                  "LastCause": true
+                }
+              ]
+            }
+          }
+        },
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Description": "You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile",
+          "Namespace": "builtin.dockerfile.DS026",
+          "Query": "data.builtin.dockerfile.DS026.deny",
+          "Resolution": "Add HEALTHCHECK instruction in Dockerfile",
+          "Severity": "LOW",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0026",
+          "References": [
+            "https://blog.aquasec.com/docker-security-best-practices",
+            "https://avd.aquasec.com/misconfig/ds-0026"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        }
+      ]
+    },
+    {
+      "Target": "dockerfile/07_docker_awesome-compose/Dockerfile",
+      "Class": "config",
+      "Type": "dockerfile",
+      "MisconfSummary": {
+        "Successes": 25,
+        "Failures": 2
+      },
+      "Misconfigurations": [
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0002",
+          "Title": "Image user should not be 'root'",
+          "Description": "Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile.",
+          "Message": "Specify at least 1 USER command in Dockerfile with non-root user as argument",
+          "Namespace": "builtin.dockerfile.DS002",
+          "Query": "data.builtin.dockerfile.DS002.deny",
+          "Resolution": "Add 'USER \u003cnon root user name\u003e' line to the Dockerfile",
+          "Severity": "HIGH",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0002",
+          "References": [
+            "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/",
+            "https://avd.aquasec.com/misconfig/ds-0002"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        },
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Description": "You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile",
+          "Namespace": "builtin.dockerfile.DS026",
+          "Query": "data.builtin.dockerfile.DS026.deny",
+          "Resolution": "Add HEALTHCHECK instruction in Dockerfile",
+          "Severity": "LOW",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0026",
+          "References": [
+            "https://blog.aquasec.com/docker-security-best-practices",
+            "https://avd.aquasec.com/misconfig/ds-0026"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        }
+      ]
+    },
+    {
+      "Target": "dockerfile/08_docker_awesome-compose/Dockerfile",
+      "Class": "config",
+      "Type": "dockerfile",
+      "MisconfSummary": {
+        "Successes": 25,
+        "Failures": 2
+      },
+      "Misconfigurations": [
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0002",
+          "Title": "Image user should not be 'root'",
+          "Description": "Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile.",
+          "Message": "Specify at least 1 USER command in Dockerfile with non-root user as argument",
+          "Namespace": "builtin.dockerfile.DS002",
+          "Query": "data.builtin.dockerfile.DS002.deny",
+          "Resolution": "Add 'USER \u003cnon root user name\u003e' line to the Dockerfile",
+          "Severity": "HIGH",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0002",
+          "References": [
+            "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/",
+            "https://avd.aquasec.com/misconfig/ds-0002"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        },
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Description": "You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile",
+          "Namespace": "builtin.dockerfile.DS026",
+          "Query": "data.builtin.dockerfile.DS026.deny",
+          "Resolution": "Add HEALTHCHECK instruction in Dockerfile",
+          "Severity": "LOW",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0026",
+          "References": [
+            "https://blog.aquasec.com/docker-security-best-practices",
+            "https://avd.aquasec.com/misconfig/ds-0026"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        }
+      ]
+    },
+    {
+      "Target": "dockerfile/09_docker_awesome-compose/Dockerfile",
+      "Class": "config",
+      "Type": "dockerfile",
+      "MisconfSummary": {
+        "Successes": 25,
+        "Failures": 2
+      },
+      "Misconfigurations": [
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0002",
+          "Title": "Image user should not be 'root'",
+          "Description": "Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile.",
+          "Message": "Specify at least 1 USER command in Dockerfile with non-root user as argument",
+          "Namespace": "builtin.dockerfile.DS002",
+          "Query": "data.builtin.dockerfile.DS002.deny",
+          "Resolution": "Add 'USER \u003cnon root user name\u003e' line to the Dockerfile",
+          "Severity": "HIGH",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0002",
+          "References": [
+            "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/",
+            "https://avd.aquasec.com/misconfig/ds-0002"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        },
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Description": "You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile",
+          "Namespace": "builtin.dockerfile.DS026",
+          "Query": "data.builtin.dockerfile.DS026.deny",
+          "Resolution": "Add HEALTHCHECK instruction in Dockerfile",
+          "Severity": "LOW",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0026",
+          "References": [
+            "https://blog.aquasec.com/docker-security-best-practices",
+            "https://avd.aquasec.com/misconfig/ds-0026"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        }
+      ]
+    },
+    {
+      "Target": "dockerfile/10_fastapi_full-stack-fastapi-template/Dockerfile.playwright",
+      "Class": "config",
+      "Type": "dockerfile",
+      "MisconfSummary": {
+        "Successes": 24,
+        "Failures": 3
+      },
+      "Misconfigurations": [
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0002",
+          "Title": "Image user should not be 'root'",
+          "Description": "Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile.",
+          "Message": "Specify at least 1 USER command in Dockerfile with non-root user as argument",
+          "Namespace": "builtin.dockerfile.DS002",
+          "Query": "data.builtin.dockerfile.DS002.deny",
+          "Resolution": "Add 'USER \u003cnon root user name\u003e' line to the Dockerfile",
+          "Severity": "HIGH",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0002",
+          "References": [
+            "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/",
+            "https://avd.aquasec.com/misconfig/ds-0002"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        },
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Description": "You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile",
+          "Namespace": "builtin.dockerfile.DS026",
+          "Query": "data.builtin.dockerfile.DS026.deny",
+          "Resolution": "Add HEALTHCHECK instruction in Dockerfile",
+          "Severity": "LOW",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0026",
+          "References": [
+            "https://blog.aquasec.com/docker-security-best-practices",
+            "https://avd.aquasec.com/misconfig/ds-0026"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        },
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0029",
+          "Title": "'apt-get' missing '--no-install-recommends'",
+          "Description": "'apt-get' install should use '--no-install-recommends' to minimize image size.",
+          "Message": "'--no-install-recommends' flag is missed: 'apt-get update \u0026\u0026 apt-get install -y unzip     \u0026\u0026 rm -rf /var/lib/apt/lists/*'",
+          "Namespace": "builtin.dockerfile.DS029",
+          "Query": "data.builtin.dockerfile.DS029.deny",
+          "Resolution": "Add '--no-install-recommends' flag to 'apt-get'",
+          "Severity": "HIGH",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0029",
+          "References": [
+            "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/",
+            "https://avd.aquasec.com/misconfig/ds-0029"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general",
+            "StartLine": 5,
+            "EndLine": 6,
+            "Code": {
+              "Lines": [
+                {
+                  "Number": 5,
+                  "Content": "RUN apt-get update \u0026\u0026 apt-get install -y unzip \\",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "RUN apt-get update \u0026\u0026 apt-get install -y unzip \\",
+                  "FirstCause": true,
+                  "LastCause": false
+                },
+                {
+                  "Number": 6,
+                  "Content": "    \u0026\u0026 rm -rf /var/lib/apt/lists/*",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "    \u0026\u0026 rm -rf /var/lib/apt/lists/*",
+                  "FirstCause": false,
+                  "LastCause": true
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Target": "dockerfile/11_nodejs_docker-node/Dockerfile",
+      "Class": "config",
+      "Type": "dockerfile",
+      "MisconfSummary": {
+        "Successes": 24,
+        "Failures": 3
+      },
+      "Misconfigurations": [
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0002",
+          "Title": "Image user should not be 'root'",
+          "Description": "Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile.",
+          "Message": "Specify at least 1 USER command in Dockerfile with non-root user as argument",
+          "Namespace": "builtin.dockerfile.DS002",
+          "Query": "data.builtin.dockerfile.DS002.deny",
+          "Resolution": "Add 'USER \u003cnon root user name\u003e' line to the Dockerfile",
+          "Severity": "HIGH",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0002",
+          "References": [
+            "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/",
+            "https://avd.aquasec.com/misconfig/ds-0002"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        },
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0013",
+          "Title": "'RUN cd ...' to change directory",
+          "Description": "Use WORKDIR instead of proliferating instructions like 'RUN cd … \u0026\u0026 do-something', which are hard to read, troubleshoot, and maintain.",
+          "Message": "RUN should not be used to change directory: 'addgroup -g 1000 node     \u0026\u0026 adduser -u 1000 -G node -s /bin/sh -D node     \u0026\u0026 apk add --no-cache         libatomic         libstdc++     \u0026\u0026 apk add --no-cache --virtual .build-deps         gnupg         curl     \u0026\u0026 ARCH= OPENSSL_ARCH='linux*' \u0026\u0026 alpineArch=\"$(apk --print-arch)\"       \u0026\u0026 case \"${alpineArch##*-}\" in         x86_64) ARCH='x64' OPENSSL_ARCH=linux-x86_64;;         aarch64) OPENSSL_ARCH=linux-aarch64;;         arm*) OPENSSL_ARCH=linux-armv4;;         s390x) OPENSSL_ARCH=linux-s390x;;         *) echo \"unsupported architecture\"; exit 1 ;;       esac     \u0026\u0026 export GNUPGHOME=\"$(mktemp -d)\"     \u0026\u0026 set -ex     \u0026\u0026 for key in       5BE8A3F6C8A5C01D106C0AD820B1A390B168D356       DD792F5973C6DE52C432CBDAC77ABFA00DDBF2B7       CC68F5A3106FF448322E48ED27F5E38D5B0A215F       890C08DB8579162FEE0DF9DB8BEAB4DFCF555EF4       C82FA3AE1CBEDC6BE46B9360C43CEC45C17AB93C       108F52B48DB57BB0CC439B2997B01419BD92F80A       655F3B5C1FB3FA8D1A0CA6BDE4A7D232B936D2FD       A363A499291CBBC940DD62E41F10027AF002F8B0     ; do         { gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys \"$key\" \u0026\u0026 gpg --batch --fingerprint \"$key\"; } ||         { gpg --batch --keyserver keyserver.ubuntu.com --recv-keys \"$key\" \u0026\u0026 gpg --batch --fingerprint \"$key\"; } ;     done   \u0026\u0026 if [ \"$ARCH\" = \"x64\" ]; then     curl -fsSLO --compressed \"https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\"     \u0026\u0026 curl -fsSLO --compressed \"https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc\"     \u0026\u0026 gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc     \u0026\u0026 gpgconf --kill all     \u0026\u0026 rm -rf \"$GNUPGHOME\"     \u0026\u0026 grep \" node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\\$\" SHASUMS256.txt | sha256sum -c -     \u0026\u0026 tar -xJf \"node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\" -C /usr/local --strip-components=1 --no-same-owner     \u0026\u0026 rm \"node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\" SHASUMS256.txt.asc SHASUMS256.txt     \u0026\u0026 ln -s /usr/local/bin/node /usr/local/bin/nodejs;   else     echo \"Building from source\"     \u0026\u0026 apk add --no-cache --virtual .build-deps-full         binutils-gold         g++         gcc         libgcc         linux-headers         make         python3         py-setuptools     \u0026\u0026 curl -fsSLO --compressed \"https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION.tar.xz\"     \u0026\u0026 curl -fsSLO --compressed \"https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc\"     \u0026\u0026 gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc     \u0026\u0026 gpgconf --kill all     \u0026\u0026 rm -rf \"$GNUPGHOME\"     \u0026\u0026 grep \" node-v$NODE_VERSION.tar.xz\\$\" SHASUMS256.txt | sha256sum -c -     \u0026\u0026 tar -xf \"node-v$NODE_VERSION.tar.xz\"     \u0026\u0026 cd \"node-v$NODE_VERSION\"     \u0026\u0026 ./configure     \u0026\u0026 make -j$(getconf _NPROCESSORS_ONLN) V=     \u0026\u0026 make install     \u0026\u0026 apk del .build-deps-full     \u0026\u0026 cd ..     \u0026\u0026 rm -Rf \"node-v$NODE_VERSION\"     \u0026\u0026 rm \"node-v$NODE_VERSION.tar.xz\" SHASUMS256.txt.asc SHASUMS256.txt;   fi   \u0026\u0026 find /usr/local/include/node/openssl/archs -mindepth 1 -maxdepth 1 ! -name \"$OPENSSL_ARCH\" -exec rm -rf {} \\;   \u0026\u0026 apk del .build-deps   \u0026\u0026 node --version   \u0026\u0026 npm --version   \u0026\u0026 rm -rf /tmp/*'. Use 'WORKDIR' statement instead.",
+          "Namespace": "builtin.dockerfile.DS013",
+          "Query": "data.builtin.dockerfile.DS013.deny",
+          "Resolution": "Use WORKDIR to change directory",
+          "Severity": "MEDIUM",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0013",
+          "References": [
+            "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#workdir",
+            "https://avd.aquasec.com/misconfig/ds-0013"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general",
+            "StartLine": 5,
+            "EndLine": 81,
+            "Code": {
+              "Lines": [
+                {
+                  "Number": 5,
+                  "Content": "RUN addgroup -g 1000 node \\",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "\u001b[38;5;64mRUN\u001b[0m addgroup -g \u001b[38;5;37m1000\u001b[0m node \u001b[38;5;124m\\",
+                  "FirstCause": true,
+                  "LastCause": false
+                },
+                {
+                  "Number": 6,
+                  "Content": "    \u0026\u0026 adduser -u 1000 -G node -s /bin/sh -D node \\",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "\u001b[0m    \u001b[38;5;245m\u0026\u0026\u001b[0m adduser -u \u001b[38;5;37m1000\u001b[0m -G node -s /bin/sh -D node \u001b[38;5;124m\\",
+                  "FirstCause": false,
+                  "LastCause": false
+                },
+                {
+                  "Number": 7,
+                  "Content": "    \u0026\u0026 apk add --no-cache \\",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "\u001b[0m    \u001b[38;5;245m\u0026\u0026\u001b[0m apk add --no-cache \u001b[38;5;124m\\",
+                  "FirstCause": false,
+                  "LastCause": false
+                },
+                {
+                  "Number": 8,
+                  "Content": "        libatomic \\",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "\u001b[0m        libatomic \u001b[38;5;124m\\",
+                  "FirstCause": false,
+                  "LastCause": false
+                },
+                {
+                  "Number": 9,
+                  "Content": "        libstdc++ \\",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "\u001b[0m        libstdc++ \u001b[38;5;124m\\",
+                  "FirstCause": false,
+                  "LastCause": false
+                },
+                {
+                  "Number": 10,
+                  "Content": "    \u0026\u0026 apk add --no-cache --virtual .build-deps \\",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "\u001b[0m    \u001b[38;5;245m\u0026\u0026\u001b[0m apk add --no-cache --virtual .build-deps \u001b[38;5;124m\\",
+                  "FirstCause": false,
+                  "LastCause": false
+                },
+                {
+                  "Number": 11,
+                  "Content": "        gnupg \\",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "\u001b[0m        gnupg \u001b[38;5;124m\\",
+                  "FirstCause": false,
+                  "LastCause": false
+                },
+                {
+                  "Number": 12,
+                  "Content": "        curl \\",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "\u001b[0m        curl \u001b[38;5;124m\\",
+                  "FirstCause": false,
+                  "LastCause": false
+                },
+                {
+                  "Number": 13,
+                  "Content": "    \u0026\u0026 ARCH= OPENSSL_ARCH='linux*' \u0026\u0026 alpineArch=\"$(apk --print-arch)\" \\",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "\u001b[0m    \u001b[38;5;245m\u0026\u0026\u001b[0m \u001b[38;5;33mARCH\u001b[0m\u001b[38;5;245m=\u001b[0m \u001b[38;5;33mOPENSSL_ARCH\u001b[0m\u001b[38;5;245m=\u001b[0m\u001b[38;5;37m'linux*'\u001b[0m \u001b[38;5;245m\u0026\u0026\u001b[0m \u001b[38;5;33malpineArch\u001b[0m\u001b[38;5;245m=\u001b[0m\u001b[38;5;37m\"\u001b[0m\u001b[38;5;64m$(\u001b[0mapk --print-arch\u001b[38;5;64m)\u001b[0m\u001b[38;5;37m\"\u001b[0m \u001b[38;5;124m\\",
+                  "FirstCause": false,
+                  "LastCause": true
+                },
+                {
+                  "Number": 14,
+                  "Content": "",
+                  "IsCause": false,
+                  "Annotation": "",
+                  "Truncated": true,
+                  "FirstCause": false,
+                  "LastCause": false
+                }
+              ]
+            }
+          }
+        },
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Description": "You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile",
+          "Namespace": "builtin.dockerfile.DS026",
+          "Query": "data.builtin.dockerfile.DS026.deny",
+          "Resolution": "Add HEALTHCHECK instruction in Dockerfile",
+          "Severity": "LOW",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0026",
+          "References": [
+            "https://blog.aquasec.com/docker-security-best-practices",
+            "https://avd.aquasec.com/misconfig/ds-0026"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        }
+      ]
+    },
+    {
+      "Target": "dockerfile/12_nodejs_docker-node/Dockerfile",
+      "Class": "config",
+      "Type": "dockerfile",
+      "MisconfSummary": {
+        "Successes": 25,
+        "Failures": 2
+      },
+      "Misconfigurations": [
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0002",
+          "Title": "Image user should not be 'root'",
+          "Description": "Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile.",
+          "Message": "Specify at least 1 USER command in Dockerfile with non-root user as argument",
+          "Namespace": "builtin.dockerfile.DS002",
+          "Query": "data.builtin.dockerfile.DS002.deny",
+          "Resolution": "Add 'USER \u003cnon root user name\u003e' line to the Dockerfile",
+          "Severity": "HIGH",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0002",
+          "References": [
+            "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/",
+            "https://avd.aquasec.com/misconfig/ds-0002"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        },
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Description": "You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile",
+          "Namespace": "builtin.dockerfile.DS026",
+          "Query": "data.builtin.dockerfile.DS026.deny",
+          "Resolution": "Add HEALTHCHECK instruction in Dockerfile",
+          "Severity": "LOW",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0026",
+          "References": [
+            "https://blog.aquasec.com/docker-security-best-practices",
+            "https://avd.aquasec.com/misconfig/ds-0026"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        }
+      ]
+    },
+    {
+      "Target": "dockerfile/13_nodejs_docker-node/Dockerfile",
+      "Class": "config",
+      "Type": "dockerfile",
+      "MisconfSummary": {
+        "Successes": 25,
+        "Failures": 2
+      },
+      "Misconfigurations": [
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0002",
+          "Title": "Image user should not be 'root'",
+          "Description": "Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile.",
+          "Message": "Specify at least 1 USER command in Dockerfile with non-root user as argument",
+          "Namespace": "builtin.dockerfile.DS002",
+          "Query": "data.builtin.dockerfile.DS002.deny",
+          "Resolution": "Add 'USER \u003cnon root user name\u003e' line to the Dockerfile",
+          "Severity": "HIGH",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0002",
+          "References": [
+            "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/",
+            "https://avd.aquasec.com/misconfig/ds-0002"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        },
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Description": "You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile",
+          "Namespace": "builtin.dockerfile.DS026",
+          "Query": "data.builtin.dockerfile.DS026.deny",
+          "Resolution": "Add HEALTHCHECK instruction in Dockerfile",
+          "Severity": "LOW",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0026",
+          "References": [
+            "https://blog.aquasec.com/docker-security-best-practices",
+            "https://avd.aquasec.com/misconfig/ds-0026"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        }
+      ]
+    },
+    {
+      "Target": "dockerfile/14_nodejs_docker-node/Dockerfile",
+      "Class": "config",
+      "Type": "dockerfile",
+      "MisconfSummary": {
+        "Successes": 24,
+        "Failures": 3
+      },
+      "Misconfigurations": [
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0002",
+          "Title": "Image user should not be 'root'",
+          "Description": "Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile.",
+          "Message": "Specify at least 1 USER command in Dockerfile with non-root user as argument",
+          "Namespace": "builtin.dockerfile.DS002",
+          "Query": "data.builtin.dockerfile.DS002.deny",
+          "Resolution": "Add 'USER \u003cnon root user name\u003e' line to the Dockerfile",
+          "Severity": "HIGH",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0002",
+          "References": [
+            "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/",
+            "https://avd.aquasec.com/misconfig/ds-0002"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        },
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0013",
+          "Title": "'RUN cd ...' to change directory",
+          "Description": "Use WORKDIR instead of proliferating instructions like 'RUN cd … \u0026\u0026 do-something', which are hard to read, troubleshoot, and maintain.",
+          "Message": "RUN should not be used to change directory: 'addgroup -g 1000 node     \u0026\u0026 adduser -u 1000 -G node -s /bin/sh -D node     \u0026\u0026 apk add --no-cache         libatomic         libstdc++     \u0026\u0026 apk add --no-cache --virtual .build-deps         gnupg         curl     \u0026\u0026 ARCH= OPENSSL_ARCH='linux*' \u0026\u0026 alpineArch=\"$(apk --print-arch)\"       \u0026\u0026 case \"${alpineArch##*-}\" in         x86_64) ARCH='x64' OPENSSL_ARCH=linux-x86_64;;         aarch64) OPENSSL_ARCH=linux-aarch64;;         *) echo \"unsupported architecture\"; exit 1 ;;       esac     \u0026\u0026 export GNUPGHOME=\"$(mktemp -d)\"     \u0026\u0026 set -ex     \u0026\u0026 for key in       5BE8A3F6C8A5C01D106C0AD820B1A390B168D356       DD792F5973C6DE52C432CBDAC77ABFA00DDBF2B7       CC68F5A3106FF448322E48ED27F5E38D5B0A215F       890C08DB8579162FEE0DF9DB8BEAB4DFCF555EF4       C82FA3AE1CBEDC6BE46B9360C43CEC45C17AB93C       108F52B48DB57BB0CC439B2997B01419BD92F80A       655F3B5C1FB3FA8D1A0CA6BDE4A7D232B936D2FD       A363A499291CBBC940DD62E41F10027AF002F8B0     ; do         { gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys \"$key\" \u0026\u0026 gpg --batch --fingerprint \"$key\"; } ||         { gpg --batch --keyserver keyserver.ubuntu.com --recv-keys \"$key\" \u0026\u0026 gpg --batch --fingerprint \"$key\"; } ;     done   \u0026\u0026 if [ \"$ARCH\" = \"x64\" ]; then     curl -fsSLO --compressed \"https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\"     \u0026\u0026 curl -fsSLO --compressed \"https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc\"     \u0026\u0026 gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc     \u0026\u0026 gpgconf --kill all     \u0026\u0026 rm -rf \"$GNUPGHOME\"     \u0026\u0026 grep \" node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\\$\" SHASUMS256.txt | sha256sum -c -     \u0026\u0026 tar -xJf \"node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\" -C /usr/local --strip-components=1 --no-same-owner     \u0026\u0026 rm \"node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\" SHASUMS256.txt.asc SHASUMS256.txt     \u0026\u0026 ln -s /usr/local/bin/node /usr/local/bin/nodejs;   else     echo \"Building from source\"     \u0026\u0026 apk add --no-cache --virtual .build-deps-full         binutils-gold         g++         gcc         libgcc         linux-headers         make         python3         py-setuptools         rust         cargo     \u0026\u0026 curl -fsSLO --compressed \"https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION.tar.xz\"     \u0026\u0026 curl -fsSLO --compressed \"https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc\"     \u0026\u0026 gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc     \u0026\u0026 gpgconf --kill all     \u0026\u0026 rm -rf \"$GNUPGHOME\"     \u0026\u0026 grep \" node-v$NODE_VERSION.tar.xz\\$\" SHASUMS256.txt | sha256sum -c -     \u0026\u0026 tar -xf \"node-v$NODE_VERSION.tar.xz\"     \u0026\u0026 cd \"node-v$NODE_VERSION\"     \u0026\u0026 ./configure     \u0026\u0026 make -j$(getconf _NPROCESSORS_ONLN) V=     \u0026\u0026 make install     \u0026\u0026 apk del .build-deps-full     \u0026\u0026 cd ..     \u0026\u0026 rm -Rf \"node-v$NODE_VERSION\"     \u0026\u0026 rm \"node-v$NODE_VERSION.tar.xz\" SHASUMS256.txt.asc SHASUMS256.txt;   fi   \u0026\u0026 find /usr/local/include/node/openssl/archs -mindepth 1 -maxdepth 1 ! -name \"$OPENSSL_ARCH\" -exec rm -rf {} \\;   \u0026\u0026 apk del .build-deps   \u0026\u0026 node --version   \u0026\u0026 npm --version   \u0026\u0026 rm -rf /tmp/*'. Use 'WORKDIR' statement instead.",
+          "Namespace": "builtin.dockerfile.DS013",
+          "Query": "data.builtin.dockerfile.DS013.deny",
+          "Resolution": "Use WORKDIR to change directory",
+          "Severity": "MEDIUM",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0013",
+          "References": [
+            "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#workdir",
+            "https://avd.aquasec.com/misconfig/ds-0013"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general",
+            "StartLine": 5,
+            "EndLine": 81,
+            "Code": {
+              "Lines": [
+                {
+                  "Number": 5,
+                  "Content": "RUN addgroup -g 1000 node \\",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "\u001b[38;5;64mRUN\u001b[0m addgroup -g \u001b[38;5;37m1000\u001b[0m node \u001b[38;5;124m\\",
+                  "FirstCause": true,
+                  "LastCause": false
+                },
+                {
+                  "Number": 6,
+                  "Content": "    \u0026\u0026 adduser -u 1000 -G node -s /bin/sh -D node \\",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "\u001b[0m    \u001b[38;5;245m\u0026\u0026\u001b[0m adduser -u \u001b[38;5;37m1000\u001b[0m -G node -s /bin/sh -D node \u001b[38;5;124m\\",
+                  "FirstCause": false,
+                  "LastCause": false
+                },
+                {
+                  "Number": 7,
+                  "Content": "    \u0026\u0026 apk add --no-cache \\",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "\u001b[0m    \u001b[38;5;245m\u0026\u0026\u001b[0m apk add --no-cache \u001b[38;5;124m\\",
+                  "FirstCause": false,
+                  "LastCause": false
+                },
+                {
+                  "Number": 8,
+                  "Content": "        libatomic \\",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "\u001b[0m        libatomic \u001b[38;5;124m\\",
+                  "FirstCause": false,
+                  "LastCause": false
+                },
+                {
+                  "Number": 9,
+                  "Content": "        libstdc++ \\",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "\u001b[0m        libstdc++ \u001b[38;5;124m\\",
+                  "FirstCause": false,
+                  "LastCause": false
+                },
+                {
+                  "Number": 10,
+                  "Content": "    \u0026\u0026 apk add --no-cache --virtual .build-deps \\",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "\u001b[0m    \u001b[38;5;245m\u0026\u0026\u001b[0m apk add --no-cache --virtual .build-deps \u001b[38;5;124m\\",
+                  "FirstCause": false,
+                  "LastCause": false
+                },
+                {
+                  "Number": 11,
+                  "Content": "        gnupg \\",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "\u001b[0m        gnupg \u001b[38;5;124m\\",
+                  "FirstCause": false,
+                  "LastCause": false
+                },
+                {
+                  "Number": 12,
+                  "Content": "        curl \\",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "\u001b[0m        curl \u001b[38;5;124m\\",
+                  "FirstCause": false,
+                  "LastCause": false
+                },
+                {
+                  "Number": 13,
+                  "Content": "    \u0026\u0026 ARCH= OPENSSL_ARCH='linux*' \u0026\u0026 alpineArch=\"$(apk --print-arch)\" \\",
+                  "IsCause": true,
+                  "Annotation": "",
+                  "Truncated": false,
+                  "Highlighted": "\u001b[0m    \u001b[38;5;245m\u0026\u0026\u001b[0m \u001b[38;5;33mARCH\u001b[0m\u001b[38;5;245m=\u001b[0m \u001b[38;5;33mOPENSSL_ARCH\u001b[0m\u001b[38;5;245m=\u001b[0m\u001b[38;5;37m'linux*'\u001b[0m \u001b[38;5;245m\u0026\u0026\u001b[0m \u001b[38;5;33malpineArch\u001b[0m\u001b[38;5;245m=\u001b[0m\u001b[38;5;37m\"\u001b[0m\u001b[38;5;64m$(\u001b[0mapk --print-arch\u001b[38;5;64m)\u001b[0m\u001b[38;5;37m\"\u001b[0m \u001b[38;5;124m\\",
+                  "FirstCause": false,
+                  "LastCause": true
+                },
+                {
+                  "Number": 14,
+                  "Content": "",
+                  "IsCause": false,
+                  "Annotation": "",
+                  "Truncated": true,
+                  "FirstCause": false,
+                  "LastCause": false
+                }
+              ]
+            }
+          }
+        },
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Description": "You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile",
+          "Namespace": "builtin.dockerfile.DS026",
+          "Query": "data.builtin.dockerfile.DS026.deny",
+          "Resolution": "Add HEALTHCHECK instruction in Dockerfile",
+          "Severity": "LOW",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0026",
+          "References": [
+            "https://blog.aquasec.com/docker-security-best-practices",
+            "https://avd.aquasec.com/misconfig/ds-0026"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        }
+      ]
+    },
+    {
+      "Target": "dockerfile/15_nodejs_docker-node/Dockerfile",
+      "Class": "config",
+      "Type": "dockerfile",
+      "MisconfSummary": {
+        "Successes": 25,
+        "Failures": 2
+      },
+      "Misconfigurations": [
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0002",
+          "Title": "Image user should not be 'root'",
+          "Description": "Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile.",
+          "Message": "Specify at least 1 USER command in Dockerfile with non-root user as argument",
+          "Namespace": "builtin.dockerfile.DS002",
+          "Query": "data.builtin.dockerfile.DS002.deny",
+          "Resolution": "Add 'USER \u003cnon root user name\u003e' line to the Dockerfile",
+          "Severity": "HIGH",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0002",
+          "References": [
+            "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/",
+            "https://avd.aquasec.com/misconfig/ds-0002"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        },
+        {
+          "Type": "Dockerfile Security Check",
+          "ID": "DS-0026",
+          "Title": "No HEALTHCHECK defined",
+          "Description": "You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.",
+          "Message": "Add HEALTHCHECK instruction in your Dockerfile",
+          "Namespace": "builtin.dockerfile.DS026",
+          "Query": "data.builtin.dockerfile.DS026.deny",
+          "Resolution": "Add HEALTHCHECK instruction in Dockerfile",
+          "Severity": "LOW",
+          "PrimaryURL": "https://avd.aquasec.com/misconfig/ds-0026",
+          "References": [
+            "https://blog.aquasec.com/docker-security-best-practices",
+            "https://avd.aquasec.com/misconfig/ds-0026"
+          ],
+          "Status": "FAIL",
+          "CauseMetadata": {
+            "Provider": "Dockerfile",
+            "Service": "general"
+          }
+        }
+      ]
+    }
+  ]
+}

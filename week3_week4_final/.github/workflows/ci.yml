@@ -1,0 +1,29 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test-and-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run tests
+        run: pytest -q
+      - name: Scan secure samples (must pass)
+        run: python -m dockerscan samples/secure --fail-on low
+      - name: Build HTML report for the insecure samples
+        run: python -m dockerscan samples/insecure --format html -o dockerscan-report.html --fail-on never
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dockerscan-report
+          path: dockerscan-report.html

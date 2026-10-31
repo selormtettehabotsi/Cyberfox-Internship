@@ -1,0 +1,7 @@
+samples/insecure/Dockerfile:1 DL3007 warning: Using latest is prone to errors if the image will ever update. Pin the version explicitly to a release tag
+samples/insecure/Dockerfile:2 DL3064 warning: Potentially sensitive data should not be used in the `ARG` or `ENV` commands
+samples/insecure/Dockerfile:3 DL3064 warning: Potentially sensitive data should not be used in the `ARG` or `ENV` commands
+samples/insecure/Dockerfile:5 DL3008 warning: Pin versions in apt get install. Instead of `apt-get install <package>` use `apt-get install <package>=<version>`
+samples/insecure/Dockerfile:5 DL3015 info: Avoid additional packages by specifying `--no-install-recommends`
+samples/insecure/Dockerfile:5 DL3009 info: Delete the apt lists (/var/lib/apt/lists) after installing something
+samples/insecure/Dockerfile:6 DL4006 warning: Set the SHELL option -o pipefail before RUN with a pipe in it. If you are using /bin/sh in an alpine image or if your shell is symlinked to busybox then consider explicitly setting your SHELL to /bin/ash, or disable this check

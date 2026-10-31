@@ -1,0 +1,23 @@
+# Example: gate a pull request on dockerscan findings in your own repository.
+# Copy to .github/workflows/dockerscan.yml. Pin actions to commit SHAs for stricter supply-chain security.
+name: dockerscan
+on: [pull_request]
+permissions:
+  contents: read
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install PyYAML
+      - run: |
+          git clone --depth 1 https://github.com/YOUR-USER/dockerscan.git /tmp/dockerscan
+          PYTHONPATH=/tmp/dockerscan python -m dockerscan . --format html -o report.html --fail-on high
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dockerscan-report
+          path: report.html

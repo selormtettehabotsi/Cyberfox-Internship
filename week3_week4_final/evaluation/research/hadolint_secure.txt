@@ -1,0 +1,2 @@
+samples/secure/Dockerfile:7 DL3066 info: Non-numeric user-id may not be resolvable by host system
+samples/secure/Dockerfile:8 DL3025 warning: Use arguments JSON notation for CMD and ENTRYPOINT arguments

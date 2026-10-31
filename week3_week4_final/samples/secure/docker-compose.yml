@@ -1,0 +1,24 @@
+services:
+  web:
+    image: myapp:1.4.2
+    user: "1001:1001"
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    env_file:
+      - .env
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+  db:
+    image: postgres:16.3
+    user: "999:999"
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - "127.0.0.1:5432:5432"
+    env_file:
+      - .env

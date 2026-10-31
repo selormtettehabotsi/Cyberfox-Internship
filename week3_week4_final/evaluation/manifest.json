@@ -1,0 +1,254 @@
+[
+ {
+  "n": 1,
+  "kind": "dockerfile",
+  "repo": "github.com/GoogleCloudPlatform/microservices-demo",
+  "license": "Apache-2.0",
+  "path": "src/loadgenerator/Dockerfile",
+  "local": "evaluation/testset/dockerfile/01_GoogleCloudPlatform_microservices-demo/Dockerfile",
+  "commit": "c7cb6d5bfd6ea3aed768634ebbcb98cb7a523712"
+ },
+ {
+  "n": 2,
+  "kind": "dockerfile",
+  "repo": "github.com/GoogleCloudPlatform/microservices-demo",
+  "license": "Apache-2.0",
+  "path": "src/productcatalogservice/Dockerfile",
+  "local": "evaluation/testset/dockerfile/02_GoogleCloudPlatform_microservices-demo/Dockerfile",
+  "commit": "c7cb6d5bfd6ea3aed768634ebbcb98cb7a523712"
+ },
+ {
+  "n": 3,
+  "kind": "dockerfile",
+  "repo": "github.com/GoogleCloudPlatform/microservices-demo",
+  "license": "Apache-2.0",
+  "path": "src/shippingservice/Dockerfile",
+  "local": "evaluation/testset/dockerfile/03_GoogleCloudPlatform_microservices-demo/Dockerfile",
+  "commit": "c7cb6d5bfd6ea3aed768634ebbcb98cb7a523712"
+ },
+ {
+  "n": 4,
+  "kind": "dockerfile",
+  "repo": "github.com/docker/awesome-compose",
+  "license": "CC0-1.0",
+  "path": "aspnet-mssql/app/aspnetapp/Dockerfile",
+  "local": "evaluation/testset/dockerfile/04_docker_awesome-compose/Dockerfile",
+  "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562"
+ },
+ {
+  "n": 5,
+  "kind": "dockerfile",
+  "repo": "github.com/docker/awesome-compose",
+  "license": "CC0-1.0",
+  "path": "django/app/Dockerfile",
+  "local": "evaluation/testset/dockerfile/05_docker_awesome-compose/Dockerfile",
+  "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562"
+ },
+ {
+  "n": 6,
+  "kind": "dockerfile",
+  "repo": "github.com/docker/awesome-compose",
+  "license": "CC0-1.0",
+  "path": "nginx-golang-mysql/backend/Dockerfile",
+  "local": "evaluation/testset/dockerfile/06_docker_awesome-compose/Dockerfile",
+  "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562"
+ },
+ {
+  "n": 7,
+  "kind": "dockerfile",
+  "repo": "github.com/docker/awesome-compose",
+  "license": "CC0-1.0",
+  "path": "nginx-nodejs-redis/web/Dockerfile",
+  "local": "evaluation/testset/dockerfile/07_docker_awesome-compose/Dockerfile",
+  "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562"
+ },
+ {
+  "n": 8,
+  "kind": "dockerfile",
+  "repo": "github.com/docker/awesome-compose",
+  "license": "CC0-1.0",
+  "path": "react-express-mongodb/frontend/Dockerfile",
+  "local": "evaluation/testset/dockerfile/08_docker_awesome-compose/Dockerfile",
+  "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562"
+ },
+ {
+  "n": 9,
+  "kind": "dockerfile",
+  "repo": "github.com/docker/awesome-compose",
+  "license": "CC0-1.0",
+  "path": "traefik-golang/backend/Dockerfile",
+  "local": "evaluation/testset/dockerfile/09_docker_awesome-compose/Dockerfile",
+  "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562"
+ },
+ {
+  "n": 10,
+  "kind": "dockerfile",
+  "repo": "github.com/fastapi/full-stack-fastapi-template",
+  "license": "MIT",
+  "path": "frontend/Dockerfile.playwright",
+  "local": "evaluation/testset/dockerfile/10_fastapi_full-stack-fastapi-template/Dockerfile.playwright",
+  "commit": "f4bcfaba7c85be3c6332cc74a20819f586dcdbc6"
+ },
+ {
+  "n": 11,
+  "kind": "dockerfile",
+  "repo": "github.com/nodejs/docker-node",
+  "license": "MIT",
+  "path": "22/alpine3.23/Dockerfile",
+  "local": "evaluation/testset/dockerfile/11_nodejs_docker-node/Dockerfile",
+  "commit": "14b1d124e21d312c46b30db98985ab7e58a89594"
+ },
+ {
+  "n": 12,
+  "kind": "dockerfile",
+  "repo": "github.com/nodejs/docker-node",
+  "license": "MIT",
+  "path": "24/bookworm-slim/Dockerfile",
+  "local": "evaluation/testset/dockerfile/12_nodejs_docker-node/Dockerfile",
+  "commit": "14b1d124e21d312c46b30db98985ab7e58a89594"
+ },
+ {
+  "n": 13,
+  "kind": "dockerfile",
+  "repo": "github.com/nodejs/docker-node",
+  "license": "MIT",
+  "path": "24/bookworm/Dockerfile",
+  "local": "evaluation/testset/dockerfile/13_nodejs_docker-node/Dockerfile",
+  "commit": "14b1d124e21d312c46b30db98985ab7e58a89594"
+ },
+ {
+  "n": 14,
+  "kind": "dockerfile",
+  "repo": "github.com/nodejs/docker-node",
+  "license": "MIT",
+  "path": "26/alpine3.23/Dockerfile",
+  "local": "evaluation/testset/dockerfile/14_nodejs_docker-node/Dockerfile",
+  "commit": "14b1d124e21d312c46b30db98985ab7e58a89594"
+ },
+ {
+  "n": 15,
+  "kind": "dockerfile",
+  "repo": "github.com/nodejs/docker-node",
+  "license": "MIT",
+  "path": "26/bookworm-slim/Dockerfile",
+  "local": "evaluation/testset/dockerfile/15_nodejs_docker-node/Dockerfile",
+  "commit": "14b1d124e21d312c46b30db98985ab7e58a89594"
+ },
+ {
+  "n": 1,
+  "kind": "compose",
+  "repo": "github.com/docker/awesome-compose",
+  "license": "CC0-1.0",
+  "path": "aspnet-mssql/compose.yaml",
+  "local": "evaluation/testset/compose/01_docker_awesome-compose/compose.yaml",
+  "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562"
+ },
+ {
+  "n": 2,
+  "kind": "compose",
+  "repo": "github.com/docker/awesome-compose",
+  "license": "CC0-1.0",
+  "path": "django/compose.yaml",
+  "local": "evaluation/testset/compose/02_docker_awesome-compose/compose.yaml",
+  "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562"
+ },
+ {
+  "n": 3,
+  "kind": "compose",
+  "repo": "github.com/docker/awesome-compose",
+  "license": "CC0-1.0",
+  "path": "minecraft/compose.yaml",
+  "local": "evaluation/testset/compose/03_docker_awesome-compose/compose.yaml",
+  "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562"
+ },
+ {
+  "n": 4,
+  "kind": "compose",
+  "repo": "github.com/docker/awesome-compose",
+  "license": "CC0-1.0",
+  "path": "nextcloud-redis-mariadb/compose.yaml",
+  "local": "evaluation/testset/compose/04_docker_awesome-compose/compose.yaml",
+  "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562"
+ },
+ {
+  "n": 5,
+  "kind": "compose",
+  "repo": "github.com/docker/awesome-compose",
+  "license": "CC0-1.0",
+  "path": "nginx-golang-mysql/compose.yaml",
+  "local": "evaluation/testset/compose/05_docker_awesome-compose/compose.yaml",
+  "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562"
+ },
+ {
+  "n": 6,
+  "kind": "compose",
+  "repo": "github.com/docker/awesome-compose",
+  "license": "CC0-1.0",
+  "path": "nginx-golang-postgres/compose.yaml",
+  "local": "evaluation/testset/compose/06_docker_awesome-compose/compose.yaml",
+  "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562"
+ },
+ {
+  "n": 7,
+  "kind": "compose",
+  "repo": "github.com/docker/awesome-compose",
+  "license": "CC0-1.0",
+  "path": "plex/compose.yaml",
+  "local": "evaluation/testset/compose/07_docker_awesome-compose/compose.yaml",
+  "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562"
+ },
+ {
+  "n": 8,
+  "kind": "compose",
+  "repo": "github.com/docker/awesome-compose",
+  "license": "CC0-1.0",
+  "path": "react-express-mysql/compose.yaml",
+  "local": "evaluation/testset/compose/08_docker_awesome-compose/compose.yaml",
+  "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562"
+ },
+ {
+  "n": 9,
+  "kind": "compose",
+  "repo": "github.com/docker/awesome-compose",
+  "license": "CC0-1.0",
+  "path": "sparkjava-mysql/compose.yaml",
+  "local": "evaluation/testset/compose/09_docker_awesome-compose/compose.yaml",
+  "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562"
+ },
+ {
+  "n": 10,
+  "kind": "compose",
+  "repo": "github.com/docker/awesome-compose",
+  "license": "CC0-1.0",
+  "path": "sparkjava/compose.yaml",
+  "local": "evaluation/testset/compose/10_docker_awesome-compose/compose.yaml",
+  "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562"
+ },
+ {
+  "n": 11,
+  "kind": "compose",
+  "repo": "github.com/fastapi/full-stack-fastapi-template",
+  "license": "MIT",
+  "path": "compose.deploy.yml",
+  "local": "evaluation/testset/compose/11_fastapi_full-stack-fastapi-template/compose.deploy.yml",
+  "commit": "f4bcfaba7c85be3c6332cc74a20819f586dcdbc6"
+ },
+ {
+  "n": 12,
+  "kind": "compose",
+  "repo": "github.com/fastapi/full-stack-fastapi-template",
+  "license": "MIT",
+  "path": "compose.override.yml",
+  "local": "evaluation/testset/compose/12_fastapi_full-stack-fastapi-template/compose.override.yml",
+  "commit": "f4bcfaba7c85be3c6332cc74a20819f586dcdbc6"
+ },
+ {
+  "n": 13,
+  "kind": "compose",
+  "repo": "github.com/fastapi/full-stack-fastapi-template",
+  "license": "MIT",
+  "path": "compose.yml",
+  "local": "evaluation/testset/compose/13_fastapi_full-stack-fastapi-template/compose.yml",
+  "commit": "f4bcfaba7c85be3c6332cc74a20819f586dcdbc6"
+ }
+]
